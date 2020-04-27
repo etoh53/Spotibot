@@ -50,6 +50,7 @@ bot.set_update_listener(listener)
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
 	bot.reply_to(message, "Hi there, I am Spotibot. This bot lists the top 10 songs in Spotify's Global Top 50 and Singapore Top 50 charts.")
+        command_help(message)
 
 @bot.message_handler(commands=['help'])
 def command_help(message):
