@@ -4,13 +4,13 @@ from telebot import types
 from spotipy.oauth2 import SpotifyClientCredentials
 
 # Enter telegram bot token right here
-TOKEN = '<token_string>'
+TOKEN = '1185133646:AAFp323ewypto4nzoAIYFyVpuALUhrjUGag'
 
 commands = {
-    'start'       : 'Get used to the bot',
-    'help'        : 'Gives you information about the available commands',
-    'top10global' : 'Lists the top 10 songs from Spotify\'s Global Top 50 chart',
-    'top10sg'     : 'Lists the top 10 songs from Spotify\'s Singapore Top 50 chart'
+	'start'       : 'Get used to the bot',
+	'help'        : 'Gives you information about the available commands',
+	'top10global' : 'Lists the top 10 songs from Spotify\'s Global Top 50 chart',
+	'top10sg'     : 'Lists the top 10 songs from Spotify\'s Singapore Top 50 chart'
 }
 
 def get_top_charts(context):
@@ -57,7 +57,7 @@ def command_help(message):
 	help_text = "The following commands are available: \n"
 	for key in commands:
 		help_text += "/" + key + ": "
-	help_text += commands[key] + "\n"
+		help_text += commands[key] + "\n"
 	bot.reply_to(message, help_text)
 
 @bot.message_handler(commands=['top10global'])
