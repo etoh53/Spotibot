@@ -7,10 +7,10 @@ from spotipy.oauth2 import SpotifyClientCredentials
 TOKEN = '<token_string>'
 
 commands = {
-    'start'       : 'Get used to the bot',
-    'help'        : 'Gives you information about the available commands',
-    'top10global': 'Lists the top 10 songs from Spotify\'s Global Top 50 chart',
-    'top10sg'    : 'Lists the top 10 songs from Spotify\'s Singapore Top 50 chart'
+	'start'       : 'Get used to the bot',
+	'help'        : 'Gives you information about the available commands',
+	'top10global' : 'Lists the top 10 songs from Spotify\'s Global Top 50 chart',
+	'top10sg'     : 'Lists the top 10 songs from Spotify\'s Singapore Top 50 chart'
 }
 
 def get_top_charts(context):
@@ -40,9 +40,9 @@ def get_top_charts(context):
 	return string
 
 def listener(messages):
-    for message in messages:
-        if message.content_type == 'text':
-            print(str(message.chat.first_name) + " [" + str(message.chat.id) + "]: " + message.text)
+	for message in messages:
+    	if message.content_type == 'text':
+        	print(str(message.chat.first_name) + " [" + str(message.chat.id) + "]: " + message.text)
 
 bot = telebot.TeleBot(TOKEN)
 bot.set_update_listener(listener)
@@ -50,32 +50,32 @@ bot.set_update_listener(listener)
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
 	bot.reply_to(message, "Hi there, I am Spotibot. This bot lists the top 10 songs in Spotify's Global Top 50 and Singapore Top 50 charts.")
-        command_help(message)
+	command_help(message)
 
 @bot.message_handler(commands=['help'])
 def command_help(message):
-    help_text = "The following commands are available: \n"
-    for key in commands:
-        help_text += "/" + key + ": "
-        help_text += commands[key] + "\n"
-    bot.reply_to(message, help_text)
+	help_text = "The following commands are available: \n"
+	for key in commands:
+		help_text += "/" + key + ": "
+	help_text += commands[key] + "\n"
+	bot.reply_to(message, help_text)
 
 @bot.message_handler(commands=['top10global'])
 def command_long_text(message):
-    try:
-    	bot.reply_to(message, get_top_charts('global'))
-    except:
-    	bot.reply_to(message, "Error getting charts. Please try again later.")
+	try:
+		bot.reply_to(message, get_top_charts('global'))
+	except:
+		bot.reply_to(message, "Error getting charts. Please try again later.")
 
 @bot.message_handler(commands=['top10sg'])
 def command_long_text(message):
-    try:
-    	bot.reply_to(message, get_top_charts('sg'))
-    except:
-    	bot.reply_to(message, "Error getting rankings. Please try again later.")
+	try:
+		bot.reply_to(message, get_top_charts('sg'))
+	except:
+		bot.reply_to(message, "Error getting rankings. Please try again later.")
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def command_default(message):
-    bot.reply_to(message, "I don't understand \"" + message.text + "\"\nMaybe try the help page at /help")
+	bot.reply_to(message, "I don't understand \"" + message.text + "\"\nMaybe try the help page at /help")
 
 bot.polling()
