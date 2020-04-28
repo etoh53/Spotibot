@@ -41,8 +41,8 @@ def get_top_charts(context):
 
 def listener(messages):
 	for message in messages:
-    	if message.content_type == 'text':
-        	print(str(message.chat.first_name) + " [" + str(message.chat.id) + "]: " + message.text)
+		if message.content_type == 'text':
+			print(str(message.chat.first_name) + " [" + str(message.chat.id) + "]: " + message.text)
 
 bot = telebot.TeleBot(TOKEN)
 bot.set_update_listener(listener)
