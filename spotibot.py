@@ -7,10 +7,10 @@ from spotipy.oauth2 import SpotifyClientCredentials
 TOKEN = '<token_string>'
 
 commands = {
-	'start'       : 'Get used to the bot',
-	'help'        : 'Gives you information about the available commands',
-	'top10global' : 'Lists the top 10 songs from Spotify\'s Global Top 50 chart',
-	'top10sg'     : 'Lists the top 10 songs from Spotify\'s Singapore Top 50 chart'
+    'start'       : 'Get used to the bot',
+    'help'        : 'Gives you information about the available commands',
+    'top10global' : 'Lists the top 10 songs from Spotify\'s Global Top 50 chart',
+    'top10sg'     : 'Lists the top 10 songs from Spotify\'s Singapore Top 50 chart'
 }
 
 def get_top_charts(context):
