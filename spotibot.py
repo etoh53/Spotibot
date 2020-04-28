@@ -4,7 +4,7 @@ from telebot import types
 from spotipy.oauth2 import SpotifyClientCredentials
 
 # Enter telegram bot token right here
-TOKEN = '1185133646:AAFp323ewypto4nzoAIYFyVpuALUhrjUGag'
+TOKEN = 'TOKEN_STRING'
 
 commands = {
 	'start'       : 'Get used to the bot',
